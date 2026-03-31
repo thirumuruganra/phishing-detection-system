@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishTank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=League+Spartan:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="inner-window">
+        <header>
+            <h1 class="logo">PhishTank</h1>
+            <nav>
+                <div class="nav-tabs">
+                    <a href="#" class="nav-tab active" data-tab="0">Threats</a>
+                    <a href="#" class="nav-tab" data-tab="1">Whitelist</a>
+                    <a href="#" class="nav-tab" data-tab="2">Blacklist</a>
+                </div>
+                <div class="slider-underline"></div>
+            </nav>
+        </header>
+        <div class="content-slider-wrapper">
+            <div class="content-slider">
+                <main class="tab-content">
+                    <div class="alert temporary-alert hidden">
+                        <div class="alert-content">
+                            <span class="icon warn-icon">!</span>
+                            <p>Suspicious Content Detected</p>
+                        </div>
+                        <button class="close-btn" id="close-alert-btn">&times;</button>
+                    </div>
+                    <h2 class="sub-heading">Highlighted Threats</h2>
+                    <div id="threats-list"></div>
+                </main>
+
+                <main class="tab-content">
+                    <div class="tab-header">
+                        <h2 class="sub-heading">Whitelist</h2>
+                        <button class="clear-btn" id="clear-whitelist-btn">Clear</button>
+                    </div>
+                    <p class="description">A list of your trusted URLs will appear here.</p>
+                    <div class="list-container">
+                        <h4 class="list-header">Trusted URLs</h4>
+                        <div class="scrollable-list" id="whitelist-list-url"></div>
+                    </div>
+                </main>
+
+                <main class="tab-content">
+                    <div class="tab-header">
+                        <h2 class="sub-heading">Blacklist</h2>
+                        <button class="clear-btn" id="clear-blacklist-btn">Clear</button>
+                    </div>
+                    <div class="list-container">
+                        <h4 class="list-header">Blocked URLs</h4>
+                        <div class="scrollable-list" id="blacklist-list-url"></div>
+                    </div>
+                    <div class="list-container">
+                        <h4 class="list-header">Blocked Emails</h4>
+                        <div class="scrollable-list" id="blacklist-list-email"></div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <div class="actions-container">
+            <div class="scanner-toggle">
+                <button class="toggle-btn active" id="scan-url-btn">Scan URL</button>
+                <button class="toggle-btn" id="scan-email-btn">Scan Email</button>
+            </div>
+            <div class="clear-all-section">
+                <button class="clear-all-btn" id="clear-all-btn">Clear All History</button>
+            </div>
+        </div>
+        
+        <footer>
+            <button class="icon-btn" id="nav-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+            <button class="icon-btn" id="user-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></button>
+            <button class="icon-btn" id="settings-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+        </footer>
+    </div>
+    <script type="module" src="ui.js"></script>
+</body>
+</html>

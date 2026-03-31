@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "PhishTank",
+  "version": "1.0",
+  "description": "A browser extension to detect and flag suspicious URLs and webpages.",
+  "permissions": [
+    "tabs",
+    "notifications",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "assets/PT_logo.png",
+    "48": "assets/PT_logo.png",
+    "128": "assets/PT_logo.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}

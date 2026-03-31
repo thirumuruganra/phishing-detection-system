@@ -1,0 +1,15 @@
+============================================================
+PHISHING EMAIL DETECTION MODEL - TRAINING SUMMARY
+============================================================
+
+Model: DistilBERT
+Training Date: 2025-10-11 17:23:39.724027
+
+Combined Dataset Test Accuracy: 0.9954
+Combined Dataset Test F1-Score: 0.9954
+Combined Dataset Test Precision: 0.9954
+Combined Dataset Test Recall: 0.9954
+
+Total Training Samples: 39887
+Total Testing Samples: 9972
+============================================================
